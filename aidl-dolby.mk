@@ -65,3 +65,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.dolby.ds2.enabled=false
 
+# Init
+PRODUCT_PACKAGES += \
+    init.dolby.rc
