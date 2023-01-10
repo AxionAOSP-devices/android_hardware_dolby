@@ -27,3 +27,7 @@ AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 # DSP Volume Synchronizer
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
+
+# Remove Packages for Dolby Support
+PRODUCT_PACKAGES += \
+    RemovePackagesDolby
