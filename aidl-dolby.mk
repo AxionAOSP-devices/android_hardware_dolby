@@ -71,3 +71,7 @@ PRODUCT_PACKAGES += \
 
 # AIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DOLBY_PATH)/vintf/dolby_framework_matrix.xml
+
+# LunarisDolby
+PRODUCT_PACKAGES += \
+    LunarisDolby
