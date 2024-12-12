@@ -23,3 +23,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Enable codec support
 AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
+
+# DSP Volume Synchronizer
+PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer
