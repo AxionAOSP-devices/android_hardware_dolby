@@ -58,6 +58,10 @@ blob_fixups: blob_fixups_user_type = {
             'android.hardware.audio.effect-V2-ndk.so',
             'android.hardware.audio.effect-V3-ndk.so'
     ),
+    (
+        'odm/etc/init/dvs-aidl-service.rc',
+    ): blob_fixup()
+        .regex_replace(r'\bodm\b', 'vendor'),
 } # fmt: skip
 
 extract_fns: extract_fns_user_type = {
