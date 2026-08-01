@@ -75,3 +75,65 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DOLBY_PATH)/vintf/dolby_framewor
 # LunarisDolby
 PRODUCT_PACKAGES += \
     LunarisDolby
+
+PRODUCT_COPY_FILES += \
+    vendor/aidl/dolby/proprietary/vendor/etc/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default-spatializer.xml \
+    vendor/aidl/dolby/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
+    vendor/aidl/dolby/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg \
+    vendor/aidl/dolby/proprietary/vendor/etc/init/android.hardware.media.c2-mi-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.c2-mi-service.rc \
+    vendor/aidl/dolby/proprietary/vendor/etc/init/dms-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dms-service.rc \
+    vendor/aidl/dolby/proprietary/vendor/etc/init/dvs-aidl-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvs-aidl-service.rc \
+    vendor/aidl/dolby/proprietary/vendor/etc/init/vendor.dolby.media.c2-default-service-dax.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2-default-service-dax.rc \
+    vendor/aidl/dolby/proprietary/vendor/etc/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml \
+    vendor/aidl/dolby/proprietary/vendor/etc/media_codecs_mi_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_mi_c2_audio.xml \
+    vendor/aidl/dolby/proprietary/vendor/etc/surfaceflinger/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/surfaceflinger/dolby_vision.cfg \
+    vendor/aidl/dolby/proprietary/vendor/persist/display/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/persist/display/dolby_vision.cfg
+
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V6-ndk \
+    lib_AIVC_decoder \
+    lib_AIVC_encoder \
+    libcodec2_soft_ac4dec \
+    libcodec2_soft_aivc_dec \
+    libcodec2_soft_aivc_enc \
+    libcodec2_soft_ddpdec \
+    libcodec2_soft_mihc_dec \
+    libcodec2_soft_mihc_enc \
+    libcodec2_store_dolby \
+    libcodec2_store_mi \
+    libdapparamstorage \
+    libdeccfg \
+    libdlbdsservice \
+    libdlbpreg \
+    libdmshal \
+    libdolbyclstc \
+    libdolbydecoderprocessor \
+    libdolbyeglcore \
+    libdolbyencoderprocessor \
+    libdolbyottcameracontrol \
+    libdolbyproxyandroid \
+    libmisoundfx_aidl_ext \
+    libqcodec2_dolbydecoderfilter \
+    libqcodec2_dolbyencoderfilter \
+    libspatializerparamstorage \
+    libswspatializeraidl_ext \
+    libdlbvolaidl \
+    libhwdapaidl \
+    liblvacfsprocessingaidl \
+    libmiwndnsprocessingaidl \
+    libspatializeraidl \
+    libswgamedapaidl \
+    libswspatializeraidl \
+    vendor.dolby.dms-V1-ndk \
+    vendor.dolby.hardware.dms@2.0 \
+    dms-service.xml \
+    dvs-aidl-service.xml \
+    media_c2_mi.xml \
+    vendor.dolby.media.c2-default-service-dax.xml \
+    android.hardware.media.c2-mi-service \
+    dvs-aidl-service \
+    vendor.dolby.dms.service \
+    vendor.dolby.media.c2-default-service-dax
+
+PRODUCT_PACKAGES += \
+    vendor_lib64_soundfx_libmisoundfx_aidl_so
