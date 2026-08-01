@@ -4,7 +4,7 @@
 
 soong_namespace {
     imports: [
-        "device/aidl/dolby",
+        "hardware/aidl-dolby",
     ],
 }
 
