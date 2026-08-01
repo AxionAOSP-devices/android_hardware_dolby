@@ -68,3 +68,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Init
 PRODUCT_PACKAGES += \
     init.dolby.rc
+
+# AIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DOLBY_PATH)/vintf/dolby_framework_matrix.xml
