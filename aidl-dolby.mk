@@ -73,8 +73,8 @@ PRODUCT_PACKAGES += \
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DOLBY_PATH)/vintf/dolby_framework_matrix.xml
 
 # LunarisDolby
-PRODUCT_PACKAGES += \
-    LunarisDolby
+# PRODUCT_PACKAGES += \
+#    LunarisDolby
 
 PRODUCT_COPY_FILES += \
     vendor/aidl/dolby/proprietary/vendor/etc/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default-spatializer.xml \
