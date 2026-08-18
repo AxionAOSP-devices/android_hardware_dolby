@@ -1,8 +1,6 @@
-# Dolby
 attribute hal_aidl_dms;
-attribute dvs_aidl_client;
-attribute dvs_aidl_server;
-
-attribute dvs_aidl;
 attribute hal_aidl_dms_client;
 attribute hal_aidl_dms_server;
+expandattribute hal_aidl_dms true;
+expandattribute hal_aidl_dms_client true;
+expandattribute hal_aidl_dms_server false;

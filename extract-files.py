@@ -59,9 +59,16 @@ blob_fixups: blob_fixups_user_type = {
             'android.hardware.audio.effect-V3-ndk.so'
     ),
     (
-        'odm/etc/init/dvs-aidl-service.rc',
+        'vendor/lib64/libcodec2_soft_ac4dec.so',
+        'vendor/lib64/libcodec2_soft_ddpdec.so',
+        'vendor/lib64/libdlbdsservice.so',
+        'vendor/lib64/libdlbpreg.so',
+        'vendor/lib64/soundfx/libdlbvolaidl.so',
+        'vendor/lib64/soundfx/libswdapaidl.so',
+        'vendor/lib64/soundfx/libswgamedapaidl.so',
+        'vendor/lib64/soundfx/libswspatializeraidl.so',
     ): blob_fixup()
-        .regex_replace(r'\bodm\b', 'vendor'),
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
 } # fmt: skip
 
 extract_fns: extract_fns_user_type = {

@@ -1,2 +1,1 @@
-# Dolby
-vendor_internal_prop(vendor_dolbyv_prop)
+vendor_restricted_prop(vendor_mot_dolby_prop)

@@ -1,3 +1,2 @@
-# Dolby
-persist.vendor.dolbyv. u:object_r:vendor_dolbyv_prop:s0
-vendor.dolbyv. u:object_r:vendor_dolbyv_prop:s0
+persist.vendor.audio.dolby.tws_tuning u:object_r:vendor_mot_dolby_prop:s0
+ro.vendor.dolby. u:object_r:vendor_mot_dolby_prop:s0
