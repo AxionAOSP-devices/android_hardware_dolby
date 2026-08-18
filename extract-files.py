@@ -27,7 +27,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/aidl/dolby',
+    'hardware/dolby',
 ]
 
 libs_add_vendor_suffix = (
