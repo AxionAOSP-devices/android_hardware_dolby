@@ -1,6 +1,6 @@
 <!--
     Input:
-        vendor/dolby/ds/service/aidl/impl/dms-service.xml
+        vendor/dolby/dax312/ds/service/aidl/impl/dms-service.xml
 -->
 <manifest version="8.0" type="device">
     <hal format="aidl">

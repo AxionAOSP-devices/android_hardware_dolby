@@ -9,77 +9,6 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.media.audio.common.types-V6-ndk",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/android.media.audio.common.types-V6-ndk.so",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "lib_AIVC_decoder",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/lib_AIVC_decoder.so",
-            ],
-            shared_libs: [
-                "libm",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "lib_AIVC_encoder",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/lib_AIVC_encoder.so",
-            ],
-            shared_libs: [
-                "libm",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libcodec2_soft_ac4dec",
     owner: "aidl",
     strip: {
@@ -92,7 +21,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libdeccfg",
-                "libstagefright_foundation",
+                "libstagefright_foundation-v33",
                 "libcutils",
                 "libdmshal",
                 "server_configurable_flags",
@@ -105,85 +34,6 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcodec2_soft_common",
                 "libcodec2_store_dolby",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_soft_aivc_dec",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcodec2_soft_aivc_dec.so",
-            ],
-            shared_libs: [
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libcodec2_vndk",
-                "libutils",
-                "libcodec2_soft_common",
-                "libcutils",
-                "liblog",
-                "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
-                "libcodec2_store_mi",
-                "libGLESv2",
-                "libEGL",
-                "lib_AIVC_decoder",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_soft_aivc_enc",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcodec2_soft_aivc_enc.so",
-            ],
-            shared_libs: [
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libcodec2_vndk",
-                "libutils",
-                "libcodec2_soft_common",
-                "libcutils",
-                "liblog",
-                "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
-                "libcodec2_store_mi",
-                "libGLESv2",
-                "libEGL",
-                "lib_AIVC_encoder",
                 "libc++",
                 "libc",
                 "libm",
@@ -209,7 +59,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libdeccfg",
-                "libstagefright_foundation",
+                "libstagefright_foundation-v33",
                 "libcutils",
                 "libdmshal",
                 "server_configurable_flags",
@@ -235,80 +85,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libcodec2_soft_mihc_dec",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcodec2_soft_mihc_dec.so",
-            ],
-            shared_libs: [
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libcodec2_vndk",
-                "libutils",
-                "libcodec2_soft_common",
-                "libcutils",
-                "liblog",
-                "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
-                "libcodec2_store_mi",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_soft_mihc_enc",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcodec2_soft_mihc_enc.so",
-            ],
-            shared_libs: [
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libcodec2_vndk",
-                "libutils",
-                "libcodec2_soft_common",
-                "libcutils",
-                "liblog",
-                "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
-                "libcodec2_store_mi",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libcodec2_store_dolby",
     owner: "aidl",
     strip: {
@@ -321,38 +97,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libdmabufheap",
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "liblog",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libcodec2_vndk",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_store_mi",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcodec2_store_mi.so",
-            ],
-            shared_libs: [
                 "server_configurable_flags",
                 "libaconfig_storage_read_api_cc",
                 "libbase",
@@ -442,13 +186,13 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libutils",
-                "libcutils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-v33",
                 "liblog",
                 "libxml2",
                 "libcrypto",
                 "libdapparamstorage",
                 "libsqlite",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -477,7 +221,7 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcutils",
                 "libaudioutils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-v33",
                 "libc++",
                 "libc",
                 "libm",
@@ -502,13 +246,13 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdmshal.so",
             ],
             shared_libs: [
+                "vendor.dolby.dms-V1-ndk",
                 "libbinder",
                 "libbinder_ndk",
                 "libcutils",
                 "libutils",
                 "liblog",
                 "libdapparamstorage",
-                "vendor.dolby.dms-V1-ndk",
                 "libhidlbase",
                 "vendor.dolby.hardware.dms@2.0",
                 "libc++",
@@ -524,7 +268,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libdolbyclstc",
+    name: "liboem_specific",
     owner: "aidl",
     strip: {
         none: true,
@@ -532,286 +276,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libdolbyclstc.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libbinder_ndk",
-                "libsensorndkbridge",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libdolbydecoderprocessor",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdolbydecoderprocessor.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libEGL",
-                "libGLESv2",
-                "libui",
-                "libutils",
-                "libstagefright_foundation",
-                "libcutils",
-                "libdolbyottcameracontrol",
-                "libhidlbase",
-                "libnativewindow",
-                "libdolbyeglcore",
-                "libcodec2_vndk",
-                "libcodec2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libdolbyeglcore",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdolbyeglcore.so",
-            ],
-            shared_libs: [
-                "libEGL",
-                "libGLESv3",
-                "libnativewindow",
-                "libcutils",
-                "liblog",
-                "libutils",
-                "libui",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libdolbyencoderprocessor",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdolbyencoderprocessor.so",
-            ],
-            shared_libs: [
-                "libdolbyeglcore",
-                "libnativewindow",
-                "liblog",
-                "libEGL",
-                "libGLESv3",
-                "libdolbyottcameracontrol",
-                "libutils",
-                "libcutils",
-                "libui",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libdolbyottcameracontrol",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdolbyottcameracontrol.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libGLESv3",
-                "libEGL",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libdolbyproxyandroid",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdolbyproxyandroid.so",
-            ],
-            shared_libs: [
-                "libdolbyottcameracontrol",
-                "libsensorndkbridge",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libbinder_ndk",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libmisoundfx_aidl_ext",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libmisoundfx_aidl_ext.so",
-            ],
-            shared_libs: [
-                "libmis6",
-                "liblog",
-                "libstagefright_foundation",
-                "libaudioutils",
-                "android.hardware.audio.effect-V3-ndk",
-                "android.hardware.common-V2-ndk",
-                "android.media.audio.common.types-V4-ndk",
-                "android.hardware.common.fmq-V1-ndk",
-                "libaudioaidlcommon",
-                "libbase",
-                "libbinder_ndk",
-                "libcutils",
-                "libfmq",
-                "libutils",
-                "libar-pal",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libqcodec2_dolbydecoderfilter",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libqcodec2_dolbydecoderfilter.so",
+                "proprietary/vendor/lib64/liboem_specific.so",
             ],
             shared_libs: [
                 "libutils",
-                "libcutils",
-                "liblog",
-                "libcodec2_vndk",
-                "libqcodec2_base",
-                "libqcodec2_utils",
-                "libqcodec2_basecodec",
-                "libqcodec2_filterbase",
-                "libqcodec2_platform",
-                "qti.video.utils.videobufferlayout",
-                "libdolbydecoderprocessor",
-                "libstagefright_foundation",
-                "libnativewindow",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libqcodec2_dolbyencoderfilter",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libqcodec2_dolbyencoderfilter.so",
-            ],
-            shared_libs: [
-                "libutils",
-                "libcutils",
-                "liblog",
-                "libcodec2_vndk",
-                "libqcodec2_base",
-                "libqcodec2_utils",
-                "libqcodec2_basecodec",
-                "libqcodec2_filterbase",
-                "libqcodec2_platform",
-                "qti.video.utils.videobufferlayout",
-                "libnativewindow",
-                "libEGL",
-                "libGLESv3",
-                "libdolbyencoderprocessor",
                 "libc++",
                 "libc",
                 "libm",
@@ -854,25 +322,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libswspatializeraidl_ext",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libswspatializeraidl_ext.so",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libdlbvolaidl",
     owner: "aidl",
     strip: {
@@ -893,7 +342,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhwdapaidl",
+    name: "libswdapaidl",
     owner: "aidl",
     strip: {
         none: true,
@@ -901,92 +350,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/soundfx/libhwdapaidl.so",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    check_elf_files: false,
-    relative_install_path: "soundfx",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "liblvacfsprocessingaidl",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/soundfx/liblvacfsprocessingaidl.so",
-            ],
-            shared_libs: [
-                "android.media.audio.common.types-V6-ndk",
-                "android.hardware.audio.effect-V3-ndk",
-                "libalsautilsv2",
-                "libaudio_aidl_conversion_common_ndk",
-                "libnbaio_mono",
-                "libmedia_helper",
-                "libstagefright_foundation",
-                "libtinyalsav2",
-                "libxml2",
-                "android.hardware.common-V2-ndk",
-                "android.hardware.common.fmq-V1-ndk",
-                "liblog",
-                "libaudioutils",
-                "libav_lvacfsencoder",
-                "libaudioaidlcommon",
-                "libbase",
-                "libbinder_ndk",
-                "libcutils",
-                "libfmq",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    relative_install_path: "soundfx",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libmiwndnsprocessingaidl",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/soundfx/libmiwndnsprocessingaidl.so",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    check_elf_files: false,
-    relative_install_path: "soundfx",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libspatializeraidl",
-    owner: "aidl",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/soundfx/libspatializeraidl.so",
+                "proprietary/vendor/lib64/soundfx/libswdapaidl.so",
             ],
         },
     },
@@ -1090,28 +454,139 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
+android_app_import {
+    name: "MotoDolbyDax3",
+    owner: "aidl",
+    apk: "proprietary/system/app/MotoDolbyDax3/MotoDolbyDax3.apk",
+    overrides: [
+        "MusicFX",
+    ],
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+android_app_import {
+    name: "MotoSignature2App",
+    owner: "aidl",
+    apk: "proprietary/system/app/MotoSignature2App/MotoSignature2App.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+android_app_import {
+    name: "MotoSignatureApp",
+    owner: "aidl",
+    apk: "proprietary/system/app/MotoSignatureApp/MotoSignatureApp.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+android_app_import {
+    name: "MotoMultiVolume",
+    owner: "aidl",
+    apk: "proprietary/product/priv-app/MotoMultiVolume/MotoMultiVolume.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+}
+
+android_app_import {
+    name: "MotoSstSoundService",
+    owner: "aidl",
+    apk: "proprietary/system_ext/priv-app/MotoSstSoundService/MotoSstSoundService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "MotorolaSettingsProvider",
+    owner: "aidl",
+    apk: "proprietary/system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "daxService",
+    owner: "aidl",
+    apk: "proprietary/system_ext/priv-app/daxService/daxService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+dex_import {
+    name: "com.motorola.frameworks.core.addon",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/com.motorola.frameworks.core.addon.jar",
+    ],
+}
+
+dex_import {
+    name: "com.motorola.motosignature",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/com.motorola.motosignature.jar",
+    ],
+}
+
+dex_import {
+    name: "moto-checkin",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/moto-checkin.jar",
+    ],
+}
+
+dex_import {
+    name: "moto-core_services",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/moto-core_services.jar",
+    ],
+}
+
+dex_import {
+    name: "moto-settings",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/moto-settings.jar",
+    ],
+}
+
+dex_import {
+    name: "motoaudioeffectsdk",
+    owner: "aidl",
+    jars: [
+        "proprietary/system/framework/motoaudioeffectsdk.jar",
+    ],
+}
+
 prebuilt_etc_xml {
     name: "dms-service.xml",
     owner: "aidl",
     src: "proprietary/vendor/etc/vintf/manifest/dms-service.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "dvs-aidl-service.xml",
-    owner: "aidl",
-    src: "proprietary/vendor/etc/vintf/manifest/dvs-aidl-service.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "media_c2_mi.xml",
-    owner: "aidl",
-    src: "proprietary/vendor/etc/vintf/manifest/media_c2_mi.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
@@ -1127,82 +602,6 @@ prebuilt_etc_xml {
 }
 
 cc_prebuilt_binary {
-    name: "android.hardware.media.c2-mi-service",
-    owner: "aidl",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/hw/android.hardware.media.c2-mi-service",
-            ],
-            shared_libs: [
-                "android.hardware.media.c2-V1-ndk",
-                "libcodec2_aidl",
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "liblog",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libutils",
-                "android.hardware.media.c2@1.0",
-                "android.hardware.media.c2@1.1",
-                "android.hardware.media.c2@1.2",
-                "libcodec2_hidl@1.0",
-                "libcodec2_hidl@1.1",
-                "libcodec2_hidl@1.2",
-                "libcodec2_vndk",
-                "libhidlbase",
-                "libbinder",
-                "libbinder_ndk",
-                "libcodec2_store_mi",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "dvs-aidl-service",
-    owner: "aidl",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/hw/dvs-aidl-service",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "libdolbyottcameracontrol",
-                "libsensorndkbridge",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
     name: "vendor.dolby.dms.service",
     owner: "aidl",
     target: {
@@ -1211,12 +610,12 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.dolby.dms.service",
             ],
             shared_libs: [
+                "vendor.dolby.dms-V1-ndk",
                 "liblog",
                 "libutils",
                 "libbase",
                 "libbinder",
                 "libbinder_ndk",
-                "vendor.dolby.dms-V1-ndk",
                 "libdapparamstorage",
                 "libdmshal",
                 "libdlbdsservice",
@@ -1245,24 +644,24 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.dolby.media.c2-default-service-dax",
             ],
             shared_libs: [
-                "android.hardware.media.c2-V1-ndk",
-                "libbinder_ndk",
-                "libcodec2_aidl",
-                "server_configurable_flags",
-                "libaconfig_storage_read_api_cc",
-                "libbase",
-                "liblog",
-                "libcodec2",
-                "libcodec2_hal_common",
-                "libutils",
                 "android.hardware.media.c2@1.0",
                 "android.hardware.media.c2@1.1",
                 "android.hardware.media.c2@1.2",
                 "libcodec2_hidl@1.0",
                 "libcodec2_hidl@1.1",
                 "libcodec2_hidl@1.2",
-                "libcodec2_vndk",
                 "libhidlbase",
+                "server_configurable_flags",
+                "libaconfig_storage_read_api_cc",
+                "libbase",
+                "liblog",
+                "libcodec2",
+                "libcodec2_hal_common",
+                "libcodec2_vndk",
+                "libutils",
+                "android.hardware.media.c2-V1-ndk",
+                "libbinder_ndk",
+                "libcodec2_aidl",
                 "libavservices_minijail",
                 "libbinder",
                 "libcodec2_store_dolby",
@@ -1280,11 +679,4 @@ cc_prebuilt_binary {
     prefer: true,
     relative_install_path: "hw",
     soc_specific: true,
-}
-
-install_symlink {
-    name: "vendor_lib64_soundfx_libmisoundfx_aidl_so",
-    soc_specific: true,
-    installed_location: "lib64/soundfx/libmisoundfx_aidl.so",
-    symlink_target: "/vendor/lib64/libmisoundfx_aidl_ext.so",
 }
