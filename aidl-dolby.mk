@@ -68,8 +68,8 @@ PRODUCT_PACKAGES += \
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DOLBY_PATH)/vintf/dolby_framework_matrix.xml
 
 # LunarisDolby
-# PRODUCT_PACKAGES += \
-#    LunarisDolby
+PRODUCT_PACKAGES += \
+    LunarisDolby
 
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/product/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml \
