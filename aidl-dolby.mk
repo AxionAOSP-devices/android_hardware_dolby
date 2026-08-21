@@ -72,22 +72,6 @@ PRODUCT_PACKAGES += \
     LunarisDolby
 
 PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/product/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml \
-    $(DOLBY_PATH)/proprietary/product/etc/motorola/bgintents/com.motorola.dynamicvolume.bgintents.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/motorola/bgintents/com.motorola.dynamicvolume.bgintents.xml \
-    $(DOLBY_PATH)/proprietary/product/etc/permissions/privapp-permissions-com.motorola.dynamicvolume.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-com.motorola.dynamicvolume.xml \
-    $(DOLBY_PATH)/proprietary/product/etc/sysconfig/hiddenapi-whitelist-com.motorola.dynamicvolume.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/hiddenapi-whitelist-com.motorola.dynamicvolume.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/com.motorola.dolby.dolbyui.dax3.features.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.motorola.dolby.dolbyui.dax3.features.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/com.motorola.frameworks.core.addon.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.motorola.frameworks.core.addon.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/com.motorola.motosignature.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.motorola.motosignature.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/moto-checkin.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-checkin.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/moto-core_services.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-core_services.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/moto-settings.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-settings.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/permissions/motoaudioeffectsdk.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/motoaudioeffectsdk.xml \
-    $(DOLBY_PATH)/proprietary/system/etc/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/enable-disable-packages/enable-disable-com.motorola.sstservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/enable-disable-packages/enable-disable-com.motorola.sstservice.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.dolby.daxservice.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/feature-com.motorola.sstservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/feature-com.motorola.sstservice.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/privapp-permissions-com.motorola.sstservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.motorola.sstservice.xml \
     $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default-spatializer.xml \
     $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
     $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default_retin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default_retin.xml \
@@ -115,19 +99,6 @@ PRODUCT_PACKAGES += \
     libswspatializeraidl \
     vendor.dolby.dms-V1-ndk \
     vendor.dolby.hardware.dms@2.0 \
-    MotoDolbyDax3 \
-    MotoSignature2App \
-    MotoSignatureApp \
-    MotoMultiVolume \
-    MotoSstSoundService \
-    MotorolaSettingsProvider \
-    daxService \
-    com.motorola.frameworks.core.addon \
-    com.motorola.motosignature \
-    moto-checkin \
-    moto-core_services \
-    moto-settings \
-    motoaudioeffectsdk \
     dms-service.xml \
     vendor.dolby.media.c2-default-service-dax.xml \
     vendor.dolby.dms.service \
