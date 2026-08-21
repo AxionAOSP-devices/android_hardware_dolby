@@ -1,4 +1,6 @@
-# All unpinned blobs below are extracted from onyx OS3.0.7.0.WOLMIXM
+## All proprietary files from this list, unless pinned and noted otherwise,
+## are from Motorola Moto g57 power (mumba) (16 WWAAS36V.48-12-ST12.1-5b6d8).
+## variant: RETCN
 
 # Dolby
 vendor/bin/hw/vendor.dolby.dms.service
