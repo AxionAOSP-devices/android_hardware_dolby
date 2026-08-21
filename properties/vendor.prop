@@ -2,7 +2,5 @@
 ro.audio.spatializer_enabled=true
 persist.vendor.audio.effectimplenter=dolby
 persist.vendor.audio_fx.current=dolby
-vendor.audio.dolby.ds2.enabled=false
-vendor.audio.dolby.ds2.hardbypass=false
 ro.vendor.dolby.dax.version=DAX3_3.12.0.8_r1
 persist.vendor.audio.dolby.tws_tuning=true
