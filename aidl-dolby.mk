@@ -28,10 +28,6 @@ AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
 
-# Remove Packages for Dolby Support
-PRODUCT_PACKAGES += \
-    RemovePackagesDolby
-
 # Spatial Audio
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
