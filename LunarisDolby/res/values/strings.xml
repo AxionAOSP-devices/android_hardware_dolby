@@ -47,6 +47,7 @@
     <string name="dolby_dialogue_enhancer_dolby_strength">Dialogue enhancer Strength</string>
     <string name="dolby_notification_listener_label">Dolby Atmos Service</string>
     <string name="loading">Loading...</string>
+    <string name="dolby_read_only">Read-only</string>
 
     <!-- Dolby profiles -->
     <string name="dolby_profile_dynamic">Dynamic</string>
@@ -97,10 +98,19 @@
     <string name="dolby_geq_preset_name_exists">Preset name already exists!</string>
     <string name="dolby_geq_preset_name_too_long">Preset name is too long!</string>
     <string name="band_mode_mismatch">Band Mode Mismatch</string>
+    <string name="interactive_frequency_response">Interactive Frequency Response</string>
+    <string name="interactive_frequency_response_summary">Drag the control points to adjust gain (±15 dB)</string>
     <string name="frequency_response">Frequency Response</string>
+    <string name="frequency_response_ro">Frequency Response (Read-only)</string>
+    <string name="frequency_response_ro_summary">Read-only view • Band mode mismatch</string>
     <string name="locked">Locked</string>
     <string name="band_configuration">Band Configuration</string>
     <string name="choose_equalizer_precision">Choose equalizer precision: more bands = finer control</string>
+    <string name="dolby_geq_view">Equalizer View</string>
+    <string name="dolby_geq_view_curve">Curve</string>
+    <string name="dolby_geq_view_sliders">Sliders</string>
+    <string name="dolby_geq_b_bands">Bands</string>
+    <string name="dolby_geq_l_bands">bands</string>
 
     <!-- Dolby intelligent EQ -->
     <string name="dolby_ieq">Intelligent equalizer</string>
@@ -180,15 +190,4 @@
     <string name="app_profile_conflict_toast">Per-device memory disabled — incompatible with per-app profiles</string>
     <string name="app_profile_conflict_summary">⚠ Disabled while per-app profiles are active — they conflict</string>
     <string name="device_state_memory_section_title">Audio Device Memory</string>
-
-    <!-- AutoEQ Profile -->
-    <string name="dolby_autoeq_title">Apply AutoEQ Profile</string>
-    <string name="dolby_autoeq_applied">Applied AutoEQ for %1$s</string>
-    <string name="dolby_autoeq_preset_name">AutoEQ: %1$s</string>
-    <string name="dolby_autoeq_search_hint">Search 8,000+ profiles...</string>
-    <string name="dolby_autoeq_currently_applied">Currently Applied</string>
-    <string name="dolby_autoeq_clear">Clear search</string>
-    <string name="dolby_autoeq_search">Search</string>
-    <string name="dolby_autoeq_active">Active profile</string>
-    <string name="dolby_autoeq_selected">Selected profile</string>
 </resources>

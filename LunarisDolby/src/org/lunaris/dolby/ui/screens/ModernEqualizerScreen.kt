@@ -11,11 +11,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -34,7 +31,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.layout
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -44,7 +40,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import org.lunaris.dolby.R
-import org.lunaris.dolby.data.autoeq.*
 import org.lunaris.dolby.ui.components.*
 import org.lunaris.dolby.ui.viewmodel.EqualizerViewModel
 import org.lunaris.dolby.domain.models.*
@@ -62,7 +57,6 @@ fun ModernEqualizerScreen(
     navController: NavController
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    var showAutoEqDialog by remember { mutableStateOf(false) }
     var showSaveDialog by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showResetDialog by remember { mutableStateOf(false) }
@@ -102,13 +96,6 @@ fun ModernEqualizerScreen(
                         Icon(
                             Icons.Default.ImportExport, 
                             contentDescription = "Import/Export",
-                            tint = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                    IconButton(onClick = { showAutoEqDialog = true }) {
-                        Icon(
-                            Icons.Default.Headphones,
-                            contentDescription = "AutoEQ",
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -179,6 +166,46 @@ fun ModernEqualizerScreen(
                 }
             }
         }
+            
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .height(130.dp)
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color.Transparent,
+                                MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.95f)
+                            )
+                        )
+                    )
+            )
+            
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .padding(
+                        start = cutoutInsets.calculateStartPadding(layoutDirection),
+                        end = cutoutInsets.calculateEndPadding(layoutDirection),
+                        bottom = paddingValues.calculateBottomPadding()
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                FloatingNavToolbar(
+                    currentRoute = currentRoute?.destination?.route ?: "settings",
+                    onNavigate = { route ->
+                        if (currentRoute?.destination?.route != route) {
+                            navController.navigate(route) {
+                                popUpTo("settings") { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
+                    }
+                )
+            }
         }
     }
 
@@ -219,13 +246,6 @@ fun ModernEqualizerScreen(
                 showResetDialog = false
             },
             onDismiss = { showResetDialog = false }
-        )
-    }
-
-    if (showAutoEqDialog) {
-        AutoEqSelectionDialog(
-            viewModel = viewModel,
-            onDismiss = { showAutoEqDialog = false }
         )
     }
 }
@@ -330,7 +350,7 @@ private fun ModernEqualizerContent(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "Equalizer View",
+                        text = stringResource(R.string.dolby_geq_view),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.onSurface
@@ -342,7 +362,7 @@ private fun ModernEqualizerContent(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     ViewModeTile(
-                        title = "Curve",
+                        title = stringResource(R.string.dolby_geq_view_curve),
                         icon = Icons.Default.ShowChart,
                         isSelected = viewMode == EqualizerViewMode.CURVE,
                         onClick = { onViewModeChange(EqualizerViewMode.CURVE) },
@@ -350,7 +370,7 @@ private fun ModernEqualizerContent(
                     )
                     
                     ViewModeTile(
-                        title = "Sliders",
+                        title = stringResource(R.string.dolby_geq_view_sliders),
                         icon = Icons.Default.Tune,
                         isSelected = viewMode == EqualizerViewMode.SLIDERS,
                         onClick = { onViewModeChange(EqualizerViewMode.SLIDERS) },
@@ -418,8 +438,8 @@ private fun CurveViewContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = if (canEdit) "Interactive Frequency Response" 
-                          else "Frequency Response (Read-only)",
+                    text = if (canEdit) stringResource(R.string.interactive_frequency_response)
+                          else stringResource(R.string.frequency_response_ro),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                     color = if (canEdit) MaterialTheme.colorScheme.onSurface
@@ -431,7 +451,7 @@ private fun CurveViewContent(
                           else MaterialTheme.colorScheme.errorContainer
                 ) {
                     Text(
-                        text = "${state.bandMode.bandCount} bands",
+                        text = "${state.bandMode.bandCount} " + stringResource(R.string.dolby_geq_l_bands),
                         style = MaterialTheme.typography.labelMedium,
                         fontWeight = FontWeight.Bold,
                         color = if (canEdit) MaterialTheme.colorScheme.onSecondaryContainer
@@ -442,9 +462,9 @@ private fun CurveViewContent(
             }
             Text(
                 text = if (canEdit) 
-                    "Drag the control points to adjust gain (±15 dB) • ${getFrequencyRange(state.bandMode)}"
+                    stringResource(R.string.interactive_frequency_response_summary) + " • ${getFrequencyRange(state.bandMode)}"
                 else
-                    "Read-only view • Band mode mismatch",
+                    stringResource(R.string.frequency_response_ro_summary),
                 style = MaterialTheme.typography.bodySmall,
                 color = if (canEdit) MaterialTheme.colorScheme.onSurfaceVariant
                       else MaterialTheme.colorScheme.error,
@@ -539,7 +559,7 @@ private fun SlidersViewContent(
                 ) {
                     Text(
                         text = if (canEdit) stringResource(R.string.dolby_geq_slider_label_gain)
-                              else "${stringResource(R.string.dolby_geq_slider_label_gain)} (Read-only)",
+                              else "${stringResource(R.string.dolby_geq_slider_label_gain)} (${stringResource(R.string.dolby_read_only)})",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold,
                         color = if (canEdit) MaterialTheme.colorScheme.onSurface
@@ -620,7 +640,7 @@ private fun ViewModeTile(
     Surface(
         onClick = {
             scope.launch {
-                haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.DOUBLE_CLICK)
             }
             onClick()
         },
@@ -738,7 +758,7 @@ private fun BandModeSelector(
                         isSelected = currentMode == mode,
                         onClick = {
                             scope.launch {
-                                haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                                haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.DOUBLE_CLICK)
                             }
                             onModeChange(mode)
                         },
@@ -1219,152 +1239,5 @@ private fun SavePresetDialog(
         containerColor = MaterialTheme.colorScheme.surface,
         titleContentColor = MaterialTheme.colorScheme.onSurface,
         textContentColor = MaterialTheme.colorScheme.onSurfaceVariant
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun AutoEqSelectionDialog(
-    viewModel: EqualizerViewModel,
-    onDismiss: () -> Unit
-) {
-    val context = LocalContext.current
-    LaunchedEffect(Unit) {
-        viewModel.initAutoEq(context)
-        viewModel.updateSearchQuery("")
-    }
-
-    val searchQuery by viewModel.searchQuery.collectAsState()
-    val filteredList by viewModel.filteredAutoEqList.collectAsState()
-    val isLoading by viewModel.isSearchLoading.collectAsState()
-    val activeAutoEqId by viewModel.currentAppliedAutoEqId.collectAsState()
-    val listState = rememberLazyListState()
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(
-                text = stringResource(id = R.string.dolby_autoeq_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-        },
-        text = {
-            Column(modifier = Modifier.fillMaxWidth().heightIn(max = 500.dp)) {
-                
-                Surface(
-                    modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
-                    shape = MaterialTheme.shapes.extraLarge,
-                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
-                ) {
-                    TextField(
-                        value = searchQuery,
-                        onValueChange = { viewModel.updateSearchQuery(it) },
-                        placeholder = { Text(stringResource(R.string.dolby_autoeq_search_hint)) },
-                        trailingIcon = {
-                            if (searchQuery.isNotEmpty()) {
-                                IconButton(onClick = { viewModel.updateSearchQuery("") }) {
-                                    Icon(Icons.Default.Clear, contentDescription = stringResource(R.string.dolby_autoeq_clear))
-                                }
-                            } else {
-                                Icon(Icons.Default.Search, contentDescription = stringResource(R.string.dolby_autoeq_search))
-                            }
-                        },
-                        singleLine = true,
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent,
-                            focusedIndicatorColor = Color.Transparent,
-                            unfocusedIndicatorColor = Color.Transparent
-                        ),
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                }
-
-                    if (searchQuery.isEmpty() && !activeAutoEqId.isNullOrEmpty()) {
-                    val activeEntry = filteredList.find { it.id == activeAutoEqId }
-                    if (activeEntry != null) {
-                        Text(
-                            text = stringResource(R.string.dolby_autoeq_currently_applied),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp)
-                        )
-                        Surface(
-                            modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp),
-                            shape = MaterialTheme.shapes.medium,
-                            color = MaterialTheme.colorScheme.primaryContainer
-                        ) {
-                            Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(text = activeEntry.name, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimaryContainer)
-                                    Text(text = "${activeEntry.source} • ${activeEntry.measurementRig}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f))
-                                }
-                                Icon(Icons.Default.CheckCircle, contentDescription = stringResource(R.string.dolby_autoeq_active), tint = MaterialTheme.colorScheme.primary)
-                            }
-                        }
-                        HorizontalDivider(modifier = Modifier.padding(bottom = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
-                    }
-                }
-
-                if (isLoading && filteredList.isEmpty()) {
-                    Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) { 
-                        CircularProgressIndicator() 
-                    }
-                } else {
-                    LazyColumn(
-                        state = listState,
-                        modifier = Modifier.fillMaxWidth().weight(1f),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        items(filteredList, key = { it.id }) { entry ->
-                            val isSelected = entry.id == activeAutoEqId
-
-                            Surface(
-                                onClick = {
-                                    viewModel.applyAutoEqProfileNetwork(context, entry)
-                                    onDismiss()
-                                },
-                                modifier = Modifier.fillMaxWidth(),
-                                shape = MaterialTheme.shapes.medium,
-                                color = if (isSelected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
-                            ) {
-                                Row(
-                                    modifier = Modifier.padding(16.dp), 
-                                    horizontalArrangement = Arrangement.SpaceBetween, 
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Text(
-                                            text = entry.name, 
-                                            fontWeight = FontWeight.Bold, 
-                                            style = MaterialTheme.typography.bodyMedium, 
-                                            color = if (isSelected) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurface
-                                        )
-                                        Text(
-                                            text = "${entry.source} • ${entry.measurementRig}", 
-                                            style = MaterialTheme.typography.labelSmall, 
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                                        )
-                                    }
-                                    if (isSelected) {
-                                        Icon(
-                                            imageVector = Icons.Default.Check, 
-                                            contentDescription = stringResource(R.string.dolby_autoeq_selected), 
-                                            tint = MaterialTheme.colorScheme.secondary, 
-                                            modifier = Modifier.size(20.dp)
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        confirmButton = { TextButton(onClick = onDismiss) { Text(stringResource(android.R.string.cancel)) } },
-        shape = MaterialTheme.shapes.extraLarge,
-        containerColor = MaterialTheme.colorScheme.surface
     )
 }

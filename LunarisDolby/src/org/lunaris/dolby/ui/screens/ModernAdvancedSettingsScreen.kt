@@ -103,6 +103,46 @@ fun ModernAdvancedSettingsScreen(
                 }
             }
         }
+            
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .height(130.dp)
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color.Transparent,
+                                MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.95f)
+                            )
+                        )
+                    )
+            )
+            
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .padding(
+                        start = cutoutInsets.calculateStartPadding(layoutDirection),
+                        end = cutoutInsets.calculateEndPadding(layoutDirection),
+                        bottom = paddingValues.calculateBottomPadding()
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                FloatingNavToolbar(
+                    currentRoute = currentRoute?.destination?.route ?: "settings",
+                    onNavigate = { route ->
+                        if (currentRoute?.destination?.route != route) {
+                            navController.navigate(route) {
+                                popUpTo("settings") { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
+                    }
+                )
+            }
         }
     }
 }
@@ -230,7 +270,7 @@ private fun ModernAdvancedSettingsContent(
             
             item {
                 ModernSettingsCard(
-                    title = "Volume Leveler",
+                    title = stringResource(R.string.dolby_volume_leveler),
                     icon = Icons.Default.VolumeDown
                 ) {
                     ModernSettingSwitch(
@@ -246,7 +286,7 @@ private fun ModernAdvancedSettingsContent(
             if (state.settings.currentProfile != 0) {
                 item {
                     ModernSettingsCard(
-                        title = "Surround Virtualizer",
+                        title = stringResource(R.string.dolby_spk_virtualizer),
                         icon = Icons.Default.Headphones
                     ) {
                         if (state.isOnSpeaker) {
@@ -284,7 +324,7 @@ private fun ModernAdvancedSettingsContent(
                 
                 item {
                     ModernSettingsCard(
-                        title = "Dialogue Enhancement",
+                        title = stringResource(R.string.dolby_dialogue_enhancer),
                         icon = Icons.Default.RecordVoiceOver
                     ) {
                         ModernSettingSwitch(

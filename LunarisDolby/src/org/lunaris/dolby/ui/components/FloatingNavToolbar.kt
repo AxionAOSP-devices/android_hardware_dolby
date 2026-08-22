@@ -76,7 +76,7 @@ fun FloatingNavToolbar(
                 onContainerColor = onContainerColor,
                 onClick = {
                     scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.DOUBLE_CLICK)
                     }
                     onNavigate("settings")
                 }
@@ -93,7 +93,7 @@ fun FloatingNavToolbar(
                 onContainerColor = onContainerColor,
                 onClick = {
                     scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.DOUBLE_CLICK)
                     }
                     onNavigate("equalizer")
                 }
@@ -109,7 +109,7 @@ fun FloatingNavToolbar(
                 onContainerColor = onContainerColor,
                 onClick = {
                     scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.DOUBLE_CLICK)
                     }
                     onNavigate("advanced")
                 }
